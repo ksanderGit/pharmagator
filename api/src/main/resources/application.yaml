@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql:pharmagator
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+pharmagator:
+  data-providers:
+    apteka-theindependentpharmacy:
+      url: https://www.theindependentpharmacy.co.uk
+      category-fetch-url: /page-data/conditions/page-data.json
+      category-path: /page-data/
