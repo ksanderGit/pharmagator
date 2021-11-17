@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:postgresql://localhost:5432/pharmagator
   jpa:
     hibernate:
       ddl-auto: validate

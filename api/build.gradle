@@ -2,11 +2,20 @@ plugins {
 	id 'org.springframework.boot' version '2.5.5'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id "org.sonarqube" version "3.3"
 }
 
 group = 'com.eleks.academy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
+sourceCompatibility = JavaVersion.VERSION_17
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "Oleksandr-Eleks_pharmagator"
+		property "sonar.organization", "eleks-jc-2021"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
+}
 
 configurations {
 	compileOnly {
@@ -24,6 +33,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.postgresql:postgresql:42.2.24'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'org.modelmapper:modelmapper:2.4.4'
 	implementation 'org.flywaydb:flyway-core:8.0.4'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
@@ -34,4 +44,7 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	testLogging {
+		events = ["passed", "skipped", "failed"]
+	}
 }
