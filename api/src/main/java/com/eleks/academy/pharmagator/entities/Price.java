@@ -28,7 +28,6 @@ public class Price {
 
     private BigDecimal price;
 
-//    @Column(insertable = false, updatable = false)
     @LastModifiedDate
     private Instant updatedAt;
 }

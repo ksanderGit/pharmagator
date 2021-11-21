@@ -63,7 +63,8 @@ class MedicineControllerTest {
     void getAll() throws Exception {
         when(medicineService.findAll()).thenReturn(medicineList);
 
-        mockMvc.perform(MockMvcRequestBuilders.get(URI).contentType(MediaType.APPLICATION_JSON))
+        mockMvc.perform(MockMvcRequestBuilders.get(URI)
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andDo(MockMvcResultHandlers.print());
 
         verify(medicineService, times(1)).findAll();

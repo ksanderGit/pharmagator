@@ -7,6 +7,7 @@ import com.eleks.academy.pharmagator.repositories.PriceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,7 @@ public class PriceServiceImp implements PriceService {
 
     @Override
     public Price save(PriceDto priceDto) {
-        Price price = Price.builder().price(priceDto.getPrice()).build();
+        Price price = Price.builder().medicineId(priceRepository.count()).pharmacyId(priceRepository.count()).price(priceDto.getPrice()).updatedAt(Instant.now()).build();
         return priceRepository.save(price);
     }
 
